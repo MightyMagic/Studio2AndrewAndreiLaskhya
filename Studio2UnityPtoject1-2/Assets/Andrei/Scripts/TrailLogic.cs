@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TrailLogic : MonoBehaviour
 {
@@ -33,6 +34,22 @@ public class TrailLogic : MonoBehaviour
             startTrail = initialValue;
         }
 
+        if(startTrail < 0f)
+        {
+            GameOver();
+        }
+    }
 
+    public void RestoreTrail(float amount)
+    {
+        startTrail += amount;
+       // trail.duration += amount;
+    }
+
+    private void GameOver()
+    {
+        print("GameOver");
+        SceneManager.LoadScene("GameOverTest");
+        Destroy(this.gameObject);
     }
 }
