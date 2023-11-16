@@ -5,20 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class TrailLogic : MonoBehaviour
 {
+
     [SerializeField] ParticleSystem trail;
+    [SerializeField] float initialValue;
     [SerializeField] float lossPerSecond;
     public bool inDarkness;
 
     public float startTrail;
-    private float initialValue;
     float loss;
     // Start is called before the first frame update
     void Start()
     {
+        trail.startLifetime = initialValue;
         startTrail = trail.startLifetime;
         inDarkness= false;
-
-        initialValue = startTrail;
     }
 
     // Update is called once per frame
@@ -26,24 +26,45 @@ public class TrailLogic : MonoBehaviour
     {
         if(inDarkness)
         {
-            startTrail = startTrail - lossPerSecond* Time.deltaTime;
-            trail.startLifetime = startTrail;
-        }
-        else
-        {
-            startTrail = initialValue;
+            startTrail = startTrail - lossPerSecond * Time.deltaTime;
         }
 
-        if(startTrail < 0f)
+
+        trail.startLifetime = startTrail;
+
+       
+
+
+        if (startTrail < 0f)
         {
             GameOver();
         }
     }
 
-    public void RestoreTrail(float amount)
+    public void RestoreTrail()
     {
-        startTrail += amount;
-       // trail.duration += amount;
+        startTrail = initialValue;
+    }
+
+    public void ReduceTrail(float coeff)
+    {
+        startTrail = startTrail - (coeff * lossPerSecond * Time.deltaTime);
+        print(coeff);
+    }
+
+    public bool EmpEnergy(float value)
+    {
+        if(startTrail - (initialValue * value) <0f)
+        {
+            //startTrail = 0f;
+            print("Emp is on cooldown");
+            return false;
+        }
+        else
+        {
+            startTrail = startTrail - (initialValue * value);
+            return true;
+        }
     }
 
     private void GameOver()

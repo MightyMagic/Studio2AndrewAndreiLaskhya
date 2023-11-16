@@ -9,6 +9,7 @@ public class Beacon : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<TrailLogic>().inDarkness = false;
+            other.gameObject.GetComponent<TrailLogic>().RestoreTrail();
         }
     }
 
@@ -16,7 +17,7 @@ public class Beacon : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<TrailLogic>().inDarkness = true;
+           other.gameObject.GetComponent<TrailLogic>().inDarkness = true;
         }
     }
 
