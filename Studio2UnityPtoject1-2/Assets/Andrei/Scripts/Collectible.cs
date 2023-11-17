@@ -10,7 +10,7 @@ public class Collectible : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<TrailLogic>().RestoreTrail(amountToRestore);
+            other.gameObject.GetComponent<TrailLogic>().RestoreTrail();
             Destroy(this.gameObject);
         }
     }
