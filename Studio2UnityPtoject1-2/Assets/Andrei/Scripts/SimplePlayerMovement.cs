@@ -6,6 +6,8 @@ public class SimplePlayerMovement : MonoBehaviour
 {
 
     [SerializeField] float moveSpeed;
+    [SerializeField] float rotationSpeed;
+    [SerializeField] float smoothness;
     [SerializeField] float upwardSpeed;
 
     [SerializeField] GameObject emp;
@@ -37,9 +39,14 @@ public class SimplePlayerMovement : MonoBehaviour
         float inputValueSide = Input.GetAxisRaw("Horizontal");
         float inputValueForward = Input.GetAxisRaw("Vertical");
 
-        currentVelocity = (transform.forward * inputValueForward + transform.right * inputValueSide).normalized * moveSpeed;
+        currentVelocity = (transform.forward * inputValueForward).normalized * moveSpeed; //+ transform.right * inputValueSide).normalized * moveSpeed;
 
-       
+        playerRb.rotation *= Quaternion.Euler(0f, inputValueSide * rotationSpeed, 0f);
+
+        //Quaternion targetRotation = Quaternion.Euler(0f, inputValueSide * rotationSpeed, 0f);
+        //Quaternion.Slerp(playerRb.rotation, targetRotation, smoothness);
+
+
         playerRb.velocity = new Vector3(currentVelocity.x, playerRb.velocity.y, currentVelocity.z);
         
 
@@ -81,8 +88,8 @@ public class SimplePlayerMovement : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
-    {
-        Camera.main.transform.position = camOffset + transform.position;
-    }
+   // private void LateUpdate()
+   // {
+   //     Camera.main.transform.position = camOffset + transform.position;
+   // }
 }
