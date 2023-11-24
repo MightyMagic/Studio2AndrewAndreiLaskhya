@@ -11,6 +11,11 @@ public class TrailLogic : MonoBehaviour
     [SerializeField] float lossPerSecond;
     public bool inDarkness;
 
+    [SerializeField] Light playerLight;
+    [SerializeField] string sceneToLoad;
+
+    float lightRange;
+
     public float startTrail;
     float loss;
     // Start is called before the first frame update
@@ -18,7 +23,9 @@ public class TrailLogic : MonoBehaviour
     {
         trail.startLifetime = initialValue;
         startTrail = trail.startLifetime;
-        inDarkness= false;
+        inDarkness= true;
+
+        lightRange = playerLight.range;
     }
 
     // Update is called once per frame
@@ -32,7 +39,7 @@ public class TrailLogic : MonoBehaviour
 
         trail.startLifetime = startTrail;
 
-       
+        playerLight.range = (startTrail / initialValue) * lightRange;
 
 
         if (startTrail < 0f)
@@ -67,10 +74,10 @@ public class TrailLogic : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         print("GameOver");
-        SceneManager.LoadScene("GameOverTest");
-        Destroy(this.gameObject);
+        SceneManager.LoadScene(sceneToLoad);
+        //Destroy(this.gameObject);
     }
 }
