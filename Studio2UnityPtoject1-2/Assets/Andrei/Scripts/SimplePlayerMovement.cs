@@ -7,7 +7,6 @@ public class SimplePlayerMovement : MonoBehaviour
 
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed;
-    [SerializeField] float smoothness;
     [SerializeField] float upwardSpeed;
 
     [SerializeField] GameObject emp;
@@ -16,6 +15,7 @@ public class SimplePlayerMovement : MonoBehaviour
 
     Rigidbody playerRb;
     Vector3 camOffset;
+    float mouseX;
 
     Vector3 currentVelocity;
 
@@ -39,9 +39,12 @@ public class SimplePlayerMovement : MonoBehaviour
         float inputValueSide = Input.GetAxisRaw("Horizontal");
         float inputValueForward = Input.GetAxisRaw("Vertical");
 
-        currentVelocity = (transform.forward * inputValueForward).normalized * moveSpeed; //+ transform.right * inputValueSide).normalized * moveSpeed;
+        mouseX += Input.GetAxis("Mouse X");
 
-        playerRb.rotation *= Quaternion.Euler(0f, inputValueSide * rotationSpeed, 0f);
+        currentVelocity = (transform.forward * inputValueForward + transform.right*inputValueSide).normalized * moveSpeed; //+ transform.right * inputValueSide).normalized * moveSpeed;
+
+        //playerRb.rotation *= Quaternion.Euler(0f, inputValueSide * rotationSpeed, 0f);
+        playerRb.rotation = Quaternion.Euler(new Vector3(0f, mouseX * rotationSpeed, 0));
 
         //Quaternion targetRotation = Quaternion.Euler(0f, inputValueSide * rotationSpeed, 0f);
         //Quaternion.Slerp(playerRb.rotation, targetRotation, smoothness);
