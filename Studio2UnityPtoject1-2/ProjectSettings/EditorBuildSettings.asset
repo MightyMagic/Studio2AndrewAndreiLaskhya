@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Arena-Test.unity
     guid: 35c4eac3d09b6c640a5a8c31fed600fb
+  - enabled: 1
+    path: Assets/Scenes/AReanLakshya.unity
+    guid: 63c70c6e9e7f57a459571f34fef8afd3
   m_configObjects: {}
