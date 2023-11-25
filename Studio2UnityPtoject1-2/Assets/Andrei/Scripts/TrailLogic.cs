@@ -12,7 +12,14 @@ public class TrailLogic : MonoBehaviour
     public bool inDarkness;
 
     [SerializeField] Light playerLight;
+    [SerializeField] float minLightRange;
+    [SerializeField] Color dangerousColor;
+    [SerializeField] Color safeColor;
+    bool inDanger;
+
+
     [SerializeField] string sceneToLoad;
+
 
     float lightRange;
 
@@ -25,7 +32,9 @@ public class TrailLogic : MonoBehaviour
         startTrail = trail.startLifetime;
         inDarkness= true;
 
-        lightRange = playerLight.range;
+        lightRange = playerLight.range - minLightRange;
+
+        inDanger= false;
     }
 
     // Update is called once per frame
@@ -39,13 +48,28 @@ public class TrailLogic : MonoBehaviour
 
         trail.startLifetime = startTrail;
 
-        playerLight.range = (startTrail / initialValue) * lightRange;
+        playerLight.range = minLightRange + (startTrail / initialValue) * lightRange;
 
 
         if (startTrail < 0f)
         {
             GameOver();
         }
+
+        if(playerLight.range < 7f && !inDanger)
+        {
+            inDanger= true;
+            playerLight.color = dangerousColor;
+            trail.startColor= dangerousColor;
+        }
+
+        if (playerLight.range > 7f && inDanger)
+        {
+            inDanger = false;
+            playerLight.color = safeColor;
+            trail.startColor = safeColor;
+        }
+
     }
 
     public void RestoreTrail()
