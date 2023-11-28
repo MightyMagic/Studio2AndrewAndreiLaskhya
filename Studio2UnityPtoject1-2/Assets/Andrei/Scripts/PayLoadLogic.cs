@@ -19,7 +19,7 @@ public class PayLoadLogic : MonoBehaviour
 
     void Start()
     {
-        inDarkness= true;
+        inDarkness= false;
         currentHealth = payloadHealth;
 
         lightObject = transform.GetChild(0).gameObject;
@@ -27,6 +27,8 @@ public class PayLoadLogic : MonoBehaviour
 
         initialScale = lightObject.transform.localScale;
         initialLightRange = lightComponent.range;
+
+        lightObject.SetActive(false);
     }
 
     void Update()
@@ -55,5 +57,18 @@ public class PayLoadLogic : MonoBehaviour
         currentHealth = payloadHealth;
         lightObject.transform.localScale = initialScale;
         lightComponent.range = initialLightRange;
+    }
+
+    public void EnteredBeacon()
+    {
+        inDarkness = false;
+        lightObject.SetActive(false);
+        RestoreHealth();
+    }
+
+    public void LeftBeacon()
+    {
+        inDarkness = true;
+        lightObject.SetActive(true);
     }
 }

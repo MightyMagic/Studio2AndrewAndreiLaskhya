@@ -18,5 +18,13 @@ public class EmpTrigger : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "EMP")
+        {
+            payload.RestoreHealth();
+        }
+    }
+
 
 }
