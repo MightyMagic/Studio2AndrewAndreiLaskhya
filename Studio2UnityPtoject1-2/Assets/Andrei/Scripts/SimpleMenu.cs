@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SimpleMenu : MonoBehaviour
 {
+    [SerializeField] string sceneToLoad;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,6 @@ public class SimpleMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Andrei-Test");
+        SceneManager.LoadScene(sceneToLoad);
     }
 }
