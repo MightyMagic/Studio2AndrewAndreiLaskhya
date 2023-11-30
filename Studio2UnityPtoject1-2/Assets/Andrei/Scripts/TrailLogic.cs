@@ -13,6 +13,8 @@ public class TrailLogic : MonoBehaviour
 
     [SerializeField] Light playerLight;
     [SerializeField] float minLightRange;
+    float lightRangeToTurnRed;
+
     [SerializeField] Color dangerousColor;
     [SerializeField] Color safeColor;
     bool inDanger;
@@ -25,45 +27,43 @@ public class TrailLogic : MonoBehaviour
 
     public float startTrail;
     float loss;
-    // Start is called before the first frame update
     void Start()
     {
         trail.startLifetime = initialValue;
         startTrail = trail.startLifetime;
-        inDarkness= true;
+        inDarkness= false;
 
         lightRange = playerLight.range - minLightRange;
+
+        lightRangeToTurnRed = minLightRange + lightRange / 3f;
 
         inDanger= false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(inDarkness)
         {
             startTrail = startTrail - lossPerSecond * Time.deltaTime;
+
+            trail.startLifetime = startTrail;
+
+            playerLight.range = minLightRange + (startTrail / initialValue) * lightRange;
         }
-
-
-        trail.startLifetime = startTrail;
-
-        playerLight.range = minLightRange + (startTrail / initialValue) * lightRange;
-
 
         if (startTrail < 0f)
         {
             GameOver();
         }
 
-        if(playerLight.range < 7f && !inDanger)
+        if(playerLight.range < lightRangeToTurnRed && !inDanger)
         {
             inDanger= true;
             playerLight.color = dangerousColor;
             trail.startColor= dangerousColor;
         }
 
-        if (playerLight.range > 7f && inDanger)
+        if (playerLight.range > lightRangeToTurnRed && inDanger)
         {
             inDanger = false;
             playerLight.color = safeColor;
@@ -75,12 +75,25 @@ public class TrailLogic : MonoBehaviour
     public void RestoreTrail()
     {
         startTrail = initialValue;
+        playerLight.range = minLightRange + lightRange;
     }
 
     public void ReduceTrail(float coeff)
     {
         startTrail = startTrail - (coeff * lossPerSecond * Time.deltaTime);
         print(coeff);
+    }
+
+    public void HideTrail(bool hide)
+    {
+        if (hide)
+        {
+            playerLight.enabled= false;
+        }
+        else
+        {
+            playerLight.enabled= true;
+        }
     }
 
     public bool EmpEnergy(float value)
@@ -102,6 +115,5 @@ public class TrailLogic : MonoBehaviour
     {
         print("GameOver");
         SceneManager.LoadScene(sceneToLoad);
-        //Destroy(this.gameObject);
     }
 }

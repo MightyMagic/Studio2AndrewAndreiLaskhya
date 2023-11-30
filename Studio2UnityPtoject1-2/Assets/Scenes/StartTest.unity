@@ -743,6 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b0c38a0637c6b44b7de94f24fb25af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: New-Introduction
 --- !u!4 &1182759715
 Transform:
   m_ObjectHideFlags: 0
@@ -816,17 +817,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Light vs darkness mechanics demo vol. 2
-
-    (core mechanics)
+  m_text: 'Light vs darkness reveal mechanic demo vol. 4
 
 
-    Use
-    WASD for movement
-
-    Hold space to fly
-
-    Press space to use EMP
+    Use WASD for movement
 
 
     Darker
