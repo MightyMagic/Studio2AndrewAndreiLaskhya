@@ -8,6 +8,7 @@ using UnityEngine;
 public class SimpleEnemy : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] GameObject waypointsObject;
     private List<GameObject> waypoints = new List<GameObject>();
 
     GameObject player;
@@ -31,7 +32,6 @@ public class SimpleEnemy : MonoBehaviour
         player = GameObject.Find("PlayerSphere");
         trailLogic = player.GetComponent<TrailLogic>();
 
-        GameObject waypointsObject = GameObject.Find("EnemiesPatrollingTrajectory");
         Waypoints waypointsScript = waypointsObject.GetComponent<Waypoints>();
         waypoints = waypointsScript.waypoints;
         print("Fetched this many waypoints" + waypoints.Count);

@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Andrei/New-Introduction.unity
     guid: fdbd84c71a107604ebcf8595dd91b0d9
+  - enabled: 1
+    path: Assets/Scenes/Andrei/FirstLevetTest.unity
+    guid: 5092b9e6375237c4685a034350fc305c
+  - enabled: 1
+    path: Assets/Scenes/Lakshya/Lv3.unity
+    guid: 92efd381dfb26024791d283debf40666
   m_configObjects: {}
