@@ -5,27 +5,25 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class PostProcessingFX : MonoBehaviour
 {
-    Vignette vignette;
+   
     [SerializeField] PostProcessVolume volume;
     [SerializeField] float vignetteSpeed;
     [SerializeField] GameObject playerObject;
     float timer;
 
-    TrailLogic trailLogic;
+    [SerializeField] TrailLogic trailLogic;
     bool effectStarted;
 
-    // Start is called before the first frame update
     void Start()
     {
         trailLogic = playerObject.GetComponent<TrailLogic>();
-        volume.profile.TryGetSettings(out vignette);
+        volume.weight = 0f;
 
         timer = 0f;
         effectStarted = false;
        // vignette.intensity = 0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(!effectStarted && trailLogic.inDarkness)
@@ -37,6 +35,24 @@ public class PostProcessingFX : MonoBehaviour
             timer = 0f;
             //vignette.intensity = 0f;
             effectStarted = false;
+        }
+
+        if(effectStarted)
+        {
+            if(volume.weight < 1f)
+            {
+                volume.weight += vignetteSpeed * Time.deltaTime;
+            }
+        }
+
+        if(volume.weight > 0f && !effectStarted)
+        {
+            if(volume.weight > 0f)
+            {
+                volume.weight -= 3 * vignetteSpeed * Time.deltaTime;
+            }
+            else
+                volume.weight = 0f;
         }
 
 
