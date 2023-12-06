@@ -19,6 +19,10 @@ public class TrailLogic : MonoBehaviour
     [SerializeField] Color safeColor;
     bool inDanger;
 
+    //[SerializeField] GameObject sphereAura;
+    float sphereSize;
+    float sphereInitialSize;
+
 
     [SerializeField] string sceneToLoad;
 
@@ -38,6 +42,11 @@ public class TrailLogic : MonoBehaviour
         lightRangeToTurnRed = minLightRange + lightRange / 3f;
 
         inDanger= false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+
+        //sphereInitialSize = sphereAura.transform.localScale.x;
+        //sphereSize = sphereInitialSize;
     }
 
     void Update()
@@ -49,6 +58,9 @@ public class TrailLogic : MonoBehaviour
             trail.startLifetime = startTrail;
 
             playerLight.range = minLightRange + (startTrail / initialValue) * lightRange;
+
+           // sphereSize = sphereInitialSize - lossPerSecond * sphereInitialSize * Time.deltaTime;
+            //sphereAura.transform.localScale = Vector3.one * sphereSize;
         }
 
         if (startTrail < 0f)
@@ -68,6 +80,8 @@ public class TrailLogic : MonoBehaviour
             inDanger = false;
             playerLight.color = safeColor;
             trail.startColor = safeColor;
+
+           // sphereAura.transform.localScale = Vector3.one * sphereInitialSize;
         }
 
     }

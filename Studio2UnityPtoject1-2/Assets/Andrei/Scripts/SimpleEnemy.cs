@@ -15,6 +15,7 @@ public class SimpleEnemy : MonoBehaviour
     TrailLogic trailLogic;
 
     [SerializeField] float stunTime;
+    [SerializeField] float activationDistance;
 
     Rigidbody rb;
     bool isStunned;
@@ -69,7 +70,7 @@ public class SimpleEnemy : MonoBehaviour
             rb.velocity = (player.transform.position - rb.position).normalized * speed;
         }
       
-        if(trailLogic.inDarkness && patrolling)
+        if(trailLogic.inDarkness && patrolling && (player.transform.position - this.transform.position).magnitude < activationDistance)
         {
             patrolling= false;
         }
@@ -132,5 +133,11 @@ public class SimpleEnemy : MonoBehaviour
         rb.velocity = (waypoints[index].transform.position - rb.position).normalized * speed;   
     }
 
-   
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, activationDistance);
+    }
+
+
 }

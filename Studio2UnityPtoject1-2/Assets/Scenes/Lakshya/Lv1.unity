@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17333592, g: 0.20811102, b: 0.2500657, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017047407, g: 0.000000025805054, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -445,10 +445,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60387486}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 45
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &60387489
 MonoBehaviour:
@@ -1006,10 +1006,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489454873}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &489454875
 MonoBehaviour:
@@ -6375,7 +6375,8 @@ MonoBehaviour:
   minLightRange: 10
   dangerousColor: {r: 1, g: 0, b: 0, a: 1}
   safeColor: {r: 1, g: 1, b: 1, a: 1}
-  sceneToLoad: New-Introduction
+  sphereAura: {fileID: 0}
+  sceneToLoad: Lv1
   startTrail: 0
 --- !u!114 &663624620
 MonoBehaviour:
@@ -8020,14 +8021,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784539744}
-  m_LocalRotation: {x: 0.32820037, y: -0.62087977, z: 0.44359532, w: -0.5567909}
+  m_LocalRotation: {x: 0.68194264, y: -0.16781408, z: -0.12080059, w: -0.7015697}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 10.682, y: 89.208, z: -426.552}
+  m_LocalEulerAnglesHint: {x: -85.871, y: 79.124, z: -415.557}
 --- !u!1 &1854169923
 GameObject:
   m_ObjectHideFlags: 0
@@ -13105,10 +13106,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889668042}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 28.010735
+  m_Radius: 35
   m_Center: {x: 0, y: 0, z: -0.17455292}
 --- !u!114 &1889668044
 MonoBehaviour:

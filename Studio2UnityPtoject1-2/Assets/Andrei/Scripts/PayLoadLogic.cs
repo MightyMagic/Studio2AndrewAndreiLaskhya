@@ -28,7 +28,7 @@ public class PayLoadLogic : MonoBehaviour
         initialScale = lightObject.transform.localScale;
         initialLightRange = lightComponent.range;
 
-        lightObject.SetActive(false);
+        lightObject.SetActive(true);
     }
 
     void Update()
@@ -62,13 +62,13 @@ public class PayLoadLogic : MonoBehaviour
     public void EnteredBeacon()
     {
         inDarkness = false;
-        lightObject.SetActive(false);
+        //lightObject.SetActive(false);
         RestoreHealth();
     }
 
     public void LeftBeacon()
     {
         inDarkness = true;
-        lightObject.SetActive(true);
+        //lightObject.SetActive(true);
     }
 }

@@ -570,8 +570,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   children:
   - {fileID: 1667342164}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 1628969703}
   - {fileID: 2016938786}
   - {fileID: 1978988455}

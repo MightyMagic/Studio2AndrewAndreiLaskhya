@@ -50,9 +50,12 @@ public class SimplePlayerMovement : MonoBehaviour
         //Quaternion.Slerp(playerRb.rotation, targetRotation, smoothness);
 
 
+       
         playerRb.velocity = new Vector3(currentVelocity.x, playerRb.velocity.y, currentVelocity.z);
-        
 
+
+        // Didn't use flight or EMP
+        /*
         if (Time.time - timeKeyPressed > 0.3f && spacePressed)
         {
             if(trail.inDarkness)
@@ -78,6 +81,7 @@ public class SimplePlayerMovement : MonoBehaviour
             timeKeyPressed = 0f;
             spacePressed= false;
         }
+        */
     }
 
     IEnumerator EMP()

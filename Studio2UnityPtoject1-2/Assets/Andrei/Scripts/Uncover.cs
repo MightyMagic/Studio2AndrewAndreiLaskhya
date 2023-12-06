@@ -5,9 +5,13 @@ using UnityEngine;
 public class Uncover : MonoBehaviour
 {
     [SerializeField] List<GameObject> children;
+    [SerializeField] float delayBeforeFade;
     void Start()
     {
-        Reveal(false);
+        foreach (GameObject child in children)
+        {
+            child.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,7 +26,7 @@ public class Uncover : MonoBehaviour
     {
         if (other.gameObject.tag == "PayLoad")
         {
-            Reveal(false);
+           // Reveal(false);
         }
     }
 
@@ -30,6 +34,7 @@ public class Uncover : MonoBehaviour
     {
         if(isRevealed)
         {
+            //StopAllCoroutines();
             foreach (GameObject child in children)
             {
                 child.SetActive(true);
@@ -37,10 +42,17 @@ public class Uncover : MonoBehaviour
         }
         else
         {
+            //StartCoroutine(DelayBeforeFade());
             foreach (GameObject child in children)
             {
                 child.SetActive(false);
             }
         }
+    }
+
+    private IEnumerator DelayBeforeFade()
+    {
+        print("Disabling the objects");
+        yield return new WaitForSeconds(delayBeforeFade);
     }
 }
