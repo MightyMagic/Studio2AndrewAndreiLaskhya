@@ -8,6 +8,7 @@ using UnityEngine;
 public class SimpleEnemy : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] float damage;
     [SerializeField] GameObject waypointsObject;
     private List<GameObject> waypoints = new List<GameObject>();
 
@@ -16,6 +17,7 @@ public class SimpleEnemy : MonoBehaviour
 
     [SerializeField] float stunTime;
     [SerializeField] float activationDistance;
+
 
     Rigidbody rb;
     bool isStunned;
@@ -90,7 +92,23 @@ public class SimpleEnemy : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-           trailLogic.GameOver();
+            trailLogic.BeingAttacked();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            trailLogic.ReduceTrail(damage);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+           trailLogic.AttackStopped();
         }
     }
 

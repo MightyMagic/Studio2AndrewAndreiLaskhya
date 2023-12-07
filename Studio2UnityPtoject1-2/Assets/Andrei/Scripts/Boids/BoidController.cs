@@ -43,6 +43,7 @@ public class BoidController : MonoBehaviour
 
         foreach (BoidController boid in other)
         {
+            
             //skip self
             if (boid == this)
                 continue;
@@ -88,7 +89,7 @@ public class BoidController : MonoBehaviour
         steering += (targetPoint - transform.position).normalized;
 
         RaycastHit hitInfo;
-        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 0.3f * localAreaRadius, LayerMask.GetMask("Obstacle")))
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, 0.3f * localAreaRadius, LayerMask.GetMask("Obstacle")) && Vector3.Distance(targetObject.transform.position, transform.position) < 10f)
         {
             steering = -(hitInfo.point - transform.position).normalized;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(steering), steeringSpeed * 3f);
