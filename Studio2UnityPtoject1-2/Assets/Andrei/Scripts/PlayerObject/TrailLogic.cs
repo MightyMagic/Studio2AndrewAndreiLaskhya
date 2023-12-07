@@ -7,6 +7,9 @@ public class TrailLogic : MonoBehaviour
 {
 
     [SerializeField] ParticleSystem trail;
+    Animator trailAnimator;
+    float initialTrailSize;
+
     [SerializeField] float initialValue;
     [SerializeField] float lossPerSecond;
     public bool inDarkness;
@@ -33,6 +36,10 @@ public class TrailLogic : MonoBehaviour
     float loss;
     void Start()
     {
+        trailAnimator = trail.gameObject.GetComponent<Animator>();
+        initialTrailSize = trail.gameObject.transform.localScale.x;
+        trailAnimator.enabled = false;
+
         trail.startLifetime = initialValue;
         startTrail = trail.startLifetime;
         inDarkness= false;
@@ -70,16 +77,15 @@ public class TrailLogic : MonoBehaviour
 
         if(playerLight.range < lightRangeToTurnRed && !inDanger)
         {
-            inDanger= true;
-            playerLight.color = dangerousColor;
-            trail.startColor= dangerousColor;
+            inDanger= true;       
+            trailAnimator.enabled = true;
         }
 
         if (playerLight.range > lightRangeToTurnRed && inDanger)
         {
             inDanger = false;
-            playerLight.color = safeColor;
-            trail.startColor = safeColor;
+            trailAnimator.enabled = false;
+            ResetTrailSize();
 
            // sphereAura.transform.localScale = Vector3.one * sphereInitialSize;
         }
@@ -90,12 +96,26 @@ public class TrailLogic : MonoBehaviour
     {
         startTrail = initialValue;
         playerLight.range = minLightRange + lightRange;
+        playerLight.color = safeColor;
+        trail.startColor = safeColor;
     }
 
     public void ReduceTrail(float coeff)
     {
         startTrail = startTrail - (coeff * lossPerSecond * Time.deltaTime);
-        print(coeff);
+        print("trail is affected" + startTrail);
+    }
+
+    public void BeingAttacked()
+    {
+        playerLight.color = dangerousColor;
+        trail.startColor = dangerousColor;
+    }
+
+    public void AttackStopped()
+    {
+        playerLight.color = safeColor;
+        trail.startColor = safeColor;
     }
 
     public void HideTrail(bool hide)
@@ -108,6 +128,11 @@ public class TrailLogic : MonoBehaviour
         {
             playerLight.enabled= true;
         }
+    }
+
+    void ResetTrailSize()
+    {
+        trail.transform.localScale = initialTrailSize * Vector3.one;
     }
 
     public bool EmpEnergy(float value)
