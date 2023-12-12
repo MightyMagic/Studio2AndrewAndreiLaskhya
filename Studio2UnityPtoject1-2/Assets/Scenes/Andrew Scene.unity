@@ -15489,7 +15489,7 @@ PrefabInstance:
     - target: {fileID: 8129692193634819857, guid: eed10e2724a430146b6402e07f6002f5, type: 3}
       propertyPath: playerForward
       value: 
-      objectReference: {fileID: 1228111262}
+      objectReference: {fileID: 1767384020}
     - target: {fileID: 8129692193634819857, guid: eed10e2724a430146b6402e07f6002f5, type: 3}
       propertyPath: distancetochase
       value: 30

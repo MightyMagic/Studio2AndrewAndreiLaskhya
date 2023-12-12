@@ -32,7 +32,7 @@ public class ChaseState : EnemyBaseState
 
         float dotProduct = Vector3.Dot(PlayerForward, playerToEnemy);
 
-        if (dotProduct >= 0)
+        if (dotProduct > 0)
         {
             enemy.SwitchState(enemy.FleeState);
         }

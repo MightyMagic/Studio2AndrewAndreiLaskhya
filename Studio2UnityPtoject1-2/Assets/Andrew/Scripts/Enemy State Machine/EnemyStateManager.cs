@@ -30,7 +30,7 @@ public class EnemyStateManager : MonoBehaviour
     {
         body = GetComponent<Rigidbody>();
 
-        currentState = PatrolState;
+        currentState = ChaseState;
 
         currentState.EnterState(this);
     }
@@ -48,15 +48,15 @@ public class EnemyStateManager : MonoBehaviour
         state.EnterState(this);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            currentState = ChaseState;
+    //private void OnTriggerEnter(Collider other)
+    //{
+        //if (other.CompareTag("Player"))
+        //{
+            //currentState = ChaseState;
 
-            currentState.EnterState(this);
-        }
-    }
+            //currentState.EnterState(this);
+        //}
+    //}
 
     private void OnDrawGizmos()
     {

@@ -20,9 +20,9 @@ public class FleeState : EnemyBaseState
     {
         float dotProduct = Vector3.Dot(PlayerForward, playerToEnemy);
 
-        if (dotProduct <= 0)
+        if (dotProduct < 0)
         {
-            enemy.SwitchState(enemy.FleeState);
+            enemy.SwitchState(enemy.ChaseState);
         }
         else
         {
