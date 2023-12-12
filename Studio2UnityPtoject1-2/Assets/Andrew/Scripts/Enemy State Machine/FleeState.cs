@@ -24,7 +24,7 @@ public class FleeState : EnemyBaseState
         {
             enemy.SwitchState(enemy.ChaseState);
         }
-        else
+        else if (dotProduct > 0)
         {
             Vector3 fleeDirection = enemy.transform.position - enemy.PlayerTransform.position;
             Vector3 normalizedDirection = fleeDirection.normalized;

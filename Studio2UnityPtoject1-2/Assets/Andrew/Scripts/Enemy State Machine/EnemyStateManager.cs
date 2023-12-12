@@ -30,7 +30,7 @@ public class EnemyStateManager : MonoBehaviour
     {
         body = GetComponent<Rigidbody>();
 
-        currentState = ChaseState;
+        currentState = FleeState;
 
         currentState.EnterState(this);
     }

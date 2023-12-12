@@ -716,6 +716,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8a7bb898cb4f0449d4dea64893fa99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beaconWaypoint: {fileID: 0}
+  beaconActive: 0
 --- !u!1 &301682412
 GameObject:
   m_ObjectHideFlags: 0
@@ -8914,6 +8916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8a7bb898cb4f0449d4dea64893fa99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beaconWaypoint: {fileID: 0}
+  beaconActive: 0
 --- !u!1 &1560951776
 GameObject:
   m_ObjectHideFlags: 0
@@ -8974,6 +8978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8a7bb898cb4f0449d4dea64893fa99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beaconWaypoint: {fileID: 0}
+  beaconActive: 0
 --- !u!1 &1592955611
 GameObject:
   m_ObjectHideFlags: 0
@@ -14121,6 +14127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8a7bb898cb4f0449d4dea64893fa99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beaconWaypoint: {fileID: 0}
+  beaconActive: 0
 --- !u!1 &1742148386
 GameObject:
   m_ObjectHideFlags: 0
@@ -15520,7 +15528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8129692194300366944, guid: eed10e2724a430146b6402e07f6002f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 71.5
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 8129692194300366944, guid: eed10e2724a430146b6402e07f6002f5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15528,7 +15536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8129692194300366944, guid: eed10e2724a430146b6402e07f6002f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 59.9
+      value: 73.6
       objectReference: {fileID: 0}
     - target: {fileID: 8129692194300366944, guid: eed10e2724a430146b6402e07f6002f5, type: 3}
       propertyPath: m_LocalRotation.w
