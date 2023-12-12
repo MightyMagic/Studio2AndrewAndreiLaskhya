@@ -23,12 +23,12 @@ public class ChaseState : EnemyBaseState
     }
     public override void UpdateState(EnemyStateManager enemy)
     {
-        float DistanceBetweenPlayer = Vector3.Distance(enemy.PlayerTransform.position, enemy.transform.position);
-
-        if (DistanceBetweenPlayer >= enemy.DistanceToChase)
-        {
-            enemy.SwitchState(enemy.PatrolState);
-        }
+        //float DistanceBetweenPlayer = Vector3.Distance(enemy.PlayerTransform.position, enemy.transform.position);
+        
+        //if (DistanceBetweenPlayer >= enemy.DistanceToChase)
+        //{
+            //enemy.SwitchState(enemy.PatrolState);
+        //}
 
         float dotProduct = Vector3.Dot(PlayerForward, playerToEnemy);
 
