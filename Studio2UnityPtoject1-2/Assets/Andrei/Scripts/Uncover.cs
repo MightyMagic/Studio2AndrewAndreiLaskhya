@@ -6,6 +6,9 @@ public class Uncover : MonoBehaviour
 {
     [SerializeField] List<GameObject> children;
     [SerializeField] float delayBeforeFade;
+
+    [SerializeField] bool switchesNewTarget;
+    [SerializeField] HintTrailsManager hintTrailsManager;
     void Start()
     {
         foreach (GameObject child in children)
@@ -19,6 +22,11 @@ public class Uncover : MonoBehaviour
         if (other.gameObject.tag == "PayLoad")
         {
             Reveal(true);
+
+            if(switchesNewTarget)
+            {
+                hintTrailsManager.SwitchObjective();
+            }
         }
     }
 

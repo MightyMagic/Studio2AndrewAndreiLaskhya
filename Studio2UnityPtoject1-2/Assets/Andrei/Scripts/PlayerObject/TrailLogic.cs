@@ -9,6 +9,7 @@ public class TrailLogic : MonoBehaviour
     [SerializeField] ParticleSystem trail;
     Animator trailAnimator;
     float initialTrailSize;
+    float initialLightIntensity;
 
     [SerializeField] float initialValue;
     [SerializeField] float lossPerSecond;
@@ -39,6 +40,8 @@ public class TrailLogic : MonoBehaviour
         trailAnimator = trail.gameObject.GetComponent<Animator>();
         initialTrailSize = trail.gameObject.transform.localScale.x;
         trailAnimator.enabled = false;
+
+        initialLightIntensity = playerLight.intensity;
 
         trail.startLifetime = initialValue;
         startTrail = trail.startLifetime;
@@ -122,11 +125,13 @@ public class TrailLogic : MonoBehaviour
     {
         if (hide)
         {
-            playerLight.enabled= false;
+            playerLight.intensity = initialLightIntensity * 0.8f;
+            //playerLight.enabled= false;
         }
         else
         {
-            playerLight.enabled= true;
+            playerLight.intensity = initialLightIntensity;
+            //playerLight.enabled= true;
         }
     }
 

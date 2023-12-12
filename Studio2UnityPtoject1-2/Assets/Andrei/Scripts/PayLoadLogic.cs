@@ -7,6 +7,8 @@ public class PayLoadLogic : MonoBehaviour
     [SerializeField] float payloadHealth;
     [SerializeField] float payloadPercentLossPerSecond;
 
+    //public GameObject hintTrailsManager;
+
     GameObject lightObject;
     Light lightComponent;
     float initialLightRange;
