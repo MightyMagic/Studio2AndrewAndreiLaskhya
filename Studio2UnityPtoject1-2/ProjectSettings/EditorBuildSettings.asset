@@ -39,12 +39,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Lakshya/Lv2.unity
     guid: bf1faf7d0366efb4db2ab1972f61eef7
   - enabled: 1
-    path: Assets/Scenes/Andrei/Lvl1.unity
+    path: Assets/Scenes/Andrei/FinalGame/Lvl1.unity
     guid: 796030c08542e434a9ed7661ce46dfc8
   - enabled: 1
-    path: Assets/Scenes/Andrei/LEVEL2_07-12.unity
+    path: Assets/Scenes/Andrei/FinalGame/LEVEL2_07-12.unity
     guid: f2adcfea0bf90394eb88582b582473b6
   - enabled: 1
     path: Assets/Scenes/GameCompleted.unity
     guid: ada5d867960a97e459d3641cefd8a320
+  - enabled: 1
+    path: Assets/Scenes/Andrei/Tools/EnemyToolsShowcase.unity
+    guid: db908b4c3ee9d654cbe25fbcbc725811
   m_configObjects: {}

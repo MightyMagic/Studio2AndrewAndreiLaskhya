@@ -10228,7 +10228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   acceleration: 10
-  timeBetweenImpulses: 3
+  timeBetweenImpulses: 2
   trailsControl: {fileID: 1852203237}
 --- !u!1 &150130697
 GameObject:
@@ -36516,7 +36516,7 @@ Rigidbody:
   m_GameObject: {fileID: 1981464397}
   serializedVersion: 2
   m_Mass: 10
-  m_Drag: 0.1
+  m_Drag: 2
   m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
