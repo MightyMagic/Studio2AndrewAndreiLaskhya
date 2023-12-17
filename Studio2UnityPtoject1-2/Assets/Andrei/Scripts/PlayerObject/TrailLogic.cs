@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TrailLogic : MonoBehaviour
+public class TrailLogic : ObserverSubject
 {
 
     [SerializeField] ParticleSystem trail;
@@ -26,7 +26,6 @@ public class TrailLogic : MonoBehaviour
     //[SerializeField] GameObject sphereAura;
     float sphereSize;
     float sphereInitialSize;
-
 
     [SerializeField] string sceneToLoad;
 
@@ -54,6 +53,8 @@ public class TrailLogic : MonoBehaviour
         inDanger= false;
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        
 
         //sphereInitialSize = sphereAura.transform.localScale.x;
         //sphereSize = sphereInitialSize;
@@ -101,24 +102,27 @@ public class TrailLogic : MonoBehaviour
         playerLight.range = minLightRange + lightRange;
         playerLight.color = safeColor;
         trail.startColor = safeColor;
+
+        NotifyObesrvers(SoundAction.EnteredBeacon);
     }
 
     public void ReduceTrail(float coeff)
     {
-        startTrail = startTrail - (coeff * lossPerSecond * Time.deltaTime);
-        print("trail is affected" + startTrail);
+        startTrail = startTrail - (coeff * lossPerSecond * Time.deltaTime);      
     }
 
     public void BeingAttacked()
     {
         playerLight.color = dangerousColor;
         trail.startColor = dangerousColor;
+        NotifyObesrvers(SoundAction.AttackedByBirds);
     }
 
     public void AttackStopped()
     {
         playerLight.color = safeColor;
         trail.startColor = safeColor;
+        NotifyObesrvers(SoundAction.BirdsLeft);
     }
 
     public void HideTrail(bool hide)

@@ -34,7 +34,7 @@ public class Uncover : MonoBehaviour
     {
         if (other.gameObject.tag == "PayLoad")
         {
-           // Reveal(false);
+            
         }
     }
 

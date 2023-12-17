@@ -46,23 +46,7 @@ public class SimpleEnemy : MonoBehaviour
 
     void Update()
     {
-        //if (!isStunned)
-        //{
-        //    rb.velocity = (player.transform.position - rb.position).normalized * speed;
-        //}
-        //
-        //if (isStunned)
-        //{
-        //    timer += Time.deltaTime;
-        //    rb.velocity = Vector3.zero;
-        //}
-        //
-        //if(timer > stunTime)
-        //{
-        //    timer = 0f;
-        //    isStunned= false;
-        //}
-
+       
         if(patrolling)
         {
             Patrolling();

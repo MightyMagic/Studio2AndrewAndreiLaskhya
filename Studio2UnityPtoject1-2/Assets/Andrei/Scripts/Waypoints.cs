@@ -2,13 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class Waypoints : MonoBehaviour
 {
     [Header("References")]
-    public List<GameObject> waypoints;
+    [HideInInspector]public List<GameObject> waypoints;
 
     [Header("Current Configuration")]
 
@@ -28,7 +27,7 @@ public class Waypoints : MonoBehaviour
     {
         for(int i = waypoints.Count - 1;i >= 0; i--)
         {
-            Undo.DestroyObjectImmediate(waypoints[i]);
+            DestroyImmediate(waypoints[i]);
             waypoints.RemoveAt(i); 
         }
     }
@@ -87,6 +86,19 @@ public class Waypoints : MonoBehaviour
         }
     }
 
+    public void ReverseList()
+    {
+    
+        for (int i = 0; i < (waypoints.Count / 2); i++)
+        {
+            int j = waypoints.Count - i - 1;
+
+            var temp = waypoints[i];
+            waypoints[i] = waypoints[j];
+            waypoints[j] = temp;
+        }
+    }
+
     private Vector3 GenerateSpawnPoint(TypeOfAreaToGenerate areaType)
     {
         Vector3 spawnPoint = new Vector3();
@@ -114,6 +126,11 @@ public class Waypoints : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        DrawPerimeter();
+    }
+
+    private void DrawPerimeter()
+    {
         if (waypoints != null)
         {
             for (int i = 0; i < waypoints.Count; i++)
@@ -124,12 +141,29 @@ public class Waypoints : MonoBehaviour
                 if (obj1 != null && obj2 != null)
                 {
                     Gizmos.DrawLine(obj1.transform.position, obj2.transform.position);
+                    DrawArrowHead(obj1.transform, obj2.transform);
                 }
-
+                Color color = Gizmos.color;
+                color.a = 0.5f;
+                Gizmos.color = color;
                 Gizmos.DrawSphere(waypoints[i].transform.position, checkNeighbours);
+
+                color.a = 1f;
+                Gizmos.color = color;
+
             }
         }
     }
+
+    private void DrawArrowHead(Transform obj1, Transform obj2)
+    {
+        Vector3 leftArrow = obj2.transform.position + Quaternion.Euler(0f, 30f, 0f) * (obj1.transform.position - obj2.transform.position).normalized * (checkNeighbours + 2f);
+        Vector3 rightArrow = obj2.transform.position + Quaternion.Euler(0f, -30f, 0f) * (obj1.transform.position - obj2.transform.position).normalized * (checkNeighbours + 2f);
+        Gizmos.DrawLine(obj2.position, leftArrow);
+        Gizmos.DrawLine(obj2.position, rightArrow);
+    }
+    
+
 
     public enum TypeOfAreaToGenerate
     {
