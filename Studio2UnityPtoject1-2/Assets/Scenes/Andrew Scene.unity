@@ -2082,7 +2082,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continue
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2961,8 +2961,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228111261}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 100000
+  m_Drag: 1000
   m_AngularDrag: 50
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -3415,7 +3415,7 @@ GameObject:
   - component: {fileID: 1306104675}
   - component: {fileID: 1306104674}
   m_Layer: 5
-  m_Name: Continue
+  m_Name: ExitToMainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3495,7 +3495,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ResumeGame
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1306104675
@@ -15505,7 +15505,7 @@ PrefabInstance:
     - target: {fileID: 8129692193634819857, guid: eed10e2724a430146b6402e07f6002f5, type: 3}
       propertyPath: playerTransform
       value: 
-      objectReference: {fileID: 691774207}
+      objectReference: {fileID: 1228111262}
     - target: {fileID: 8129692193634819857, guid: eed10e2724a430146b6402e07f6002f5, type: 3}
       propertyPath: playerCamForward
       value: 
@@ -15528,15 +15528,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8129692194300366944, guid: eed10e2724a430146b6402e07f6002f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.7
+      value: -0.77
       objectReference: {fileID: 0}
     - target: {fileID: 8129692194300366944, guid: eed10e2724a430146b6402e07f6002f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.98
+      value: 1.76
       objectReference: {fileID: 0}
     - target: {fileID: 8129692194300366944, guid: eed10e2724a430146b6402e07f6002f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 73.6
+      value: 11.6
       objectReference: {fileID: 0}
     - target: {fileID: 8129692194300366944, guid: eed10e2724a430146b6402e07f6002f5, type: 3}
       propertyPath: m_LocalRotation.w

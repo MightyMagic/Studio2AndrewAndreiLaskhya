@@ -9,6 +9,7 @@ public class EnemyStateManager : MonoBehaviour
     public PatrolState PatrolState = new PatrolState();
     public ChaseState ChaseState = new ChaseState();
     public FleeState FleeState = new FleeState();
+    public float debugDot;
 
     [SerializeField] Transform playerTransform;
     public Transform PlayerTransform => playerTransform;
@@ -47,20 +48,16 @@ public class EnemyStateManager : MonoBehaviour
 
         state.EnterState(this);
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-        //if (other.CompareTag("Player"))
-        //{
-            //currentState = ChaseState;
-
-            //currentState.EnterState(this);
-        //}
-    //}
-
-    private void OnDrawGizmos()
+    public bool IsPlayerLookingAtEnemy(float angle=45)
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(transform.position, DistanceToChase);
+        Debug.DrawLine(playerTransform.position, transform.position,Color.green);
+        Debug.DrawLine(playerTransform.position, playerTransform.position + playerForward.transform.forward,Color.blue);
+        var cos = Mathf.Cos(angle * Mathf.Deg2Rad);
+        var playerToEnemy = transform.position - playerTransform.position ;
+
+        var forward = playerForward.forward;
+        var dot = Vector3.Dot(playerToEnemy.normalized, forward);
+        debugDot = dot;
+        return dot > cos;
     }
 }

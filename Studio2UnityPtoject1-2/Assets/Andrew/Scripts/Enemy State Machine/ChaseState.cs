@@ -7,8 +7,6 @@ public class ChaseState : EnemyBaseState
 {
     public float steeringSpeed = 150;
     public float maxSpeed = 5;
-    Vector3 playerToEnemy;
-    Vector3 PlayerForward;
 
     public override void EnterState(EnemyStateManager enemy)
     {
@@ -17,22 +15,12 @@ public class ChaseState : EnemyBaseState
         steeringSpeed = enemy.steeringSpeed;
         maxSpeed = enemy.maxSpeed;
 
-        playerToEnemy = enemy.PlayerTransform.position - enemy.transform.position;
-        PlayerForward = enemy.playerForward.forward;
 
     }
     public override void UpdateState(EnemyStateManager enemy)
     {
-        //float DistanceBetweenPlayer = Vector3.Distance(enemy.PlayerTransform.position, enemy.transform.position);
-        
-        //if (DistanceBetweenPlayer >= enemy.DistanceToChase)
-        //{
-            //enemy.SwitchState(enemy.PatrolState);
-        //}
 
-        float dotProduct = Vector3.Dot(PlayerForward, playerToEnemy);
-
-        if (dotProduct > 0)
+        if (enemy.IsPlayerLookingAtEnemy(45))
         {
             enemy.SwitchState(enemy.FleeState);
         }
@@ -47,7 +35,7 @@ public class ChaseState : EnemyBaseState
             //Vector3.ClampMagnitude(rb.velocity, maxSpeed);
             //}
 
-            Vector3.ClampMagnitude(enemy.Body.velocity, maxSpeed);
+            enemy.Body.velocity = Vector3.ClampMagnitude(enemy.Body.velocity, maxSpeed);
         }
 
         //Vector3.Dot
