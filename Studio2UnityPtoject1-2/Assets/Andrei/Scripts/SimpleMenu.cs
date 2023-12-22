@@ -19,6 +19,9 @@ public class SimpleMenu : MonoBehaviour
 
     public void StartGame()
     {
+        data = string.Empty;
+        File.WriteAllText(Application.persistentDataPath + "/" + filenameTxt, string.Empty);
+        Debug.Log("File cleared");
         SceneManager.LoadScene(sceneToLoad);
     }
 
@@ -42,13 +45,17 @@ public class SimpleMenu : MonoBehaviour
 
                 SceneManager.LoadScene(sceneName);
             }
+            else
+            {
+                StartGame();
+            }
             
         }
         else
         {
-            data = string.Empty;
-            File.WriteAllText(Application.persistentDataPath + "/" + filenameTxt, string.Empty);
-            Debug.Log("File cleared");
+            //data = string.Empty;
+            //File.WriteAllText(Application.persistentDataPath + "/" + filenameTxt, string.Empty);
+            //Debug.Log("File cleared");
             StartGame();
         }
 

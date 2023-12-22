@@ -28,6 +28,7 @@ public class TrailLogic : ObserverSubject
     float sphereInitialSize;
 
     [SerializeField] string sceneToLoad;
+    [SerializeField] PauseMenuControl pause;
 
 
     float lightRange;
@@ -162,6 +163,12 @@ public class TrailLogic : ObserverSubject
     public void GameOver()
     {
         print("GameOver");
-        SceneManager.LoadScene(sceneToLoad);
+        
+        StartCoroutine(pause.FadeIn(sceneToLoad));
+        
+        //SceneManager.LoadScene(sceneToLoad);
     }
 }
+
+
+

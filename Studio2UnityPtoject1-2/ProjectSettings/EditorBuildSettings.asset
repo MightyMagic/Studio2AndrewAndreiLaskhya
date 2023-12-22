@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Lakshya/Lv2.unity
     guid: bf1faf7d0366efb4db2ab1972f61eef7
   - enabled: 1
+    path: Assets/Scenes/Andrei/FinalGame/IntroLevel.unity
+    guid: d791885c6e51127448f6406a6ac827a4
+  - enabled: 1
     path: Assets/Scenes/Andrei/FinalGame/Lvl1.unity
     guid: 796030c08542e434a9ed7661ce46dfc8
   - enabled: 1

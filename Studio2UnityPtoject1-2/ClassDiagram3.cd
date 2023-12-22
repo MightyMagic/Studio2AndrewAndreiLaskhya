@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BaseState&lt;Estate&gt;" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAQAAAAAIABQAAABAgAAAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\StateMachine\BaseState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyAttackState" Collapsed="true">
+    <Position X="1.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAgBAEAAAAEAAQAAAAAcABQAAABAgAAAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\StateMachine\EnemyAttackState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyPatrolState" Collapsed="true">
+    <Position X="3.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAABCEAAAAEAAQQAIAEcIAQAABFAgAAAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\StateMachine\EnemyPatrolState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyStateMachine">
+    <Position X="8" Y="2" Width="4.5" />
+    <NestedTypes>
+      <Enum Name="EnemyStateMachine.EnemyState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Andrei\Scripts\StateMachine\EnemyStateMachine.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <AssociationLine Name="trailLogic" Type="TrailLogic" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8" Y="2.875" />
+        <Point X="7.625" Y="2.875" />
+        <Point X="7.625" Y="3.625" />
+        <Point X="6.25" Y="3.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAACIAgBAEAAgAEAAAAAAAAYAFQAAAEAAAQAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\StateMachine\EnemyStateMachine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="trailLogic" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="states" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="StateMachine&lt;Estate&gt;" Collapsed="true">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAIAAAAAAAAAAAAAAEAAAAAQIAQAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\StateMachine\StateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObserverSubject">
+    <Position X="3" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAhAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\ObserverPattern\ObserverSubject.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="observers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MusicSystem" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAEAAAAAAAAAAAAAAAAAACAAAAAAIAAAAoAAAKAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\ObserverPattern\MusicSystem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.492" />
+  </Class>
+  <Class Name="TrailLogic" Collapsed="true">
+    <Position X="4.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQJwAAQASgIEACgAAAAABjAKRAAAAQICAAIAMAAJIA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\PlayerObject\TrailLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="IObserver" Collapsed="true">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\ObserverPattern\IObserver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

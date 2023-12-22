@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BaseState&lt;Estate&gt;">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAQAAAAAIABQAAABAgAAAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\StateMachine\BaseState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyAttackState">
+    <Position X="8.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAgBAEAAAAEAAQAAAAAcABQAAABAgAAAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\StateMachine\EnemyAttackState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyPatrolState">
+    <Position X="11" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAABCEAAAAEAAQQAIAEcIAQAABFAgAAAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\StateMachine\EnemyPatrolState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyStateMachine">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="EnemyStateMachine.EnemyState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Andrei\Scripts\StateMachine\EnemyStateMachine.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAACIAgBAEAAgAEAAAAAAAAYAFQAAAEAAAQAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\StateMachine\EnemyStateMachine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="trailLogic" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="states" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="StateMachine&lt;Estate&gt;">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAIAAAAAAAAAAAAAAEAAAAAQIAQAA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\StateMachine\StateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrailLogic" Collapsed="true">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQJwAAQASgIEACgAAAAABjAKRAAAAQICAAIAMAAJIA=</HashCode>
+      <FileName>Assets\Andrei\Scripts\PlayerObject\TrailLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
