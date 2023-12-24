@@ -53,7 +53,7 @@ public class EnemyStateManager : MonoBehaviour
         Debug.DrawLine(playerTransform.position, transform.position,Color.green);
         Debug.DrawLine(playerTransform.position, playerTransform.position + playerForward.transform.forward,Color.blue);
         var cos = Mathf.Cos(angle * Mathf.Deg2Rad);
-        var playerToEnemy = transform.position - playerTransform.position ;
+        var playerToEnemy = transform.position - playerTransform.position;
 
         var forward = playerForward.forward;
         var dot = Vector3.Dot(playerToEnemy.normalized, forward);

@@ -3,16 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class StateManager<T> : MonoBehaviour where T : Enum
+public abstract class AndrewStateManager<T> : MonoBehaviour where T : Enum
 {
     /// <summary>
     /// Protected is private, with the only classes allowed access being the ones deriving
     /// from it
     /// Dictionary will store the concrete states, the key type specifies which concrete state you access
     /// </summary>
-    protected Dictionary<T, BaseState<T>> States = new Dictionary<T, BaseState<T>>();
+    protected Dictionary<T, AndrewBaseState<T>> States = new Dictionary<T, AndrewBaseState<T>>();
 
-    protected BaseState<T> CurrentState;
+    protected AndrewBaseState<T> CurrentState;
 
     protected bool isTransitioningState;
 

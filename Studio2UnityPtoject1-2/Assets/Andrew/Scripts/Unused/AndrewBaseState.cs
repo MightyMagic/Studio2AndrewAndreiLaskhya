@@ -9,14 +9,14 @@ using UnityEngine;
 /// Can add constraints to generics for them to only apply to a certain class
 /// or interface
 /// </summary>
-public abstract class BaseState<T> where T : Enum
+public abstract class AndrewBaseState<T> where T : Enum
 {
     /// <summary>
     /// Abstract declaration in abstract state must be defined in deriving
     /// class
     /// </summary>
 
-    public BaseState(T key)
+    public AndrewBaseState(T key)
     {
         StateKey = key;
     }

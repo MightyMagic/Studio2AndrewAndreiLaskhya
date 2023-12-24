@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class EnemyBaseState
 {
     /// <summary>
-    /// this function is called when the satte starts
+    /// this function is called when the state starts
     /// </summary>
     /// <param name="enemy"></param>
     public abstract void EnterState(EnemyStateManager enemy);
